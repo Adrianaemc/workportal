@@ -1,0 +1,177 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.perfil-header {
+    display: flex;
+    align-items: flex-start; /* Alinea la imagen y el contenido en la parte superior */
+    margin-bottom: 20px;
+}
+
+.perfil-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    cursor: pointer; /* Hacer que la imagen sea clickeable */
+}
+
+.perfil-header .info {
+    flex: 1;
+}
+
+.perfil-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.perfil-header #sobre-mi {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.seccion-sobre-mi {
+    margin-top: 20px;
+}
+
+.seccion-sobre-mi h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.seccion-sobre-mi p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.seccion-experiencia,
+.seccion-educacion {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+
+    .seccion-experiencia,
+    .seccion-educacion {
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos adicionales para el nav */
+nav {
+    background-color: #ffffffad;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+nav a {
+    color: #004aad;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav .fas.fa-bell {
+    position: relative;
+    font-size: 1.5rem;
+}
+
+nav .fas.fa-bell::after {
+    content: ''; /* Ejemplo: número de notificaciones */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}
+
+.busqueda-form {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 20px;
+}
+
+.busqueda-form input[type="text"] {
+    width: 50%; /* Ancho deseado */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 20px; 
+}
+
+.busqueda-form button {
+    padding: 10px 20px;
+    background-color: #3d7ec4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px; /* Aumenta este valor para mayor separación */
+}
+
+
+/* Estilos para secciones recomendadas y guardadas */
+.seccion-recomendaciones,
+.seccion-guardados {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.seccion-recomendaciones h3,
+.seccion-guardados h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.seccion-recomendaciones p,
+.seccion-guardados p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.seccion-busqueda h2 {
+display: flex;
+}
+

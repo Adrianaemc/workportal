@@ -15,16 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono = $_POST["telefono"];
 
     // Consultar si el correo electrónico ya existe en la base de datos
-    $consulta = "SELECT COUNT(*) AS total FROM usuarios WHERE email = :email";
+    $consulta = "SELECT COUNT(*) AS total FROM usuarios WHERE correo_electronico = :email";
     $statement = $conexion->prepare($consulta);
     $statement->bindParam(':email', $email);
     $statement->execute();
     $resultado = $statement->fetch(PDO::FETCH_ASSOC);
     if ($resultado['total'] > 0) {
-        $mensaje_error = "El correo electrónico EXISTENTE. Por favor, utiliza otro correo electrónico.";
+        $mensaje_error = "El correo electrónico ya existe. Por favor, utiliza otro correo electrónico.";
     } else {
         // Inserción en la base de datos
-        $query = "INSERT INTO usuarios (nombre, apellido, email, password, dni, localidad, provincia, pais, telefono) 
+        $query = "INSERT INTO usuarios (nombre, apellido, correo_electronico, contrasena, dni, localidad, provincia, pais, telefono) 
                   VALUES (:nombre, :apellido, :email, :password, :dni, :localidad, :provincia, :pais, :telefono)";
         $statement = $conexion->prepare($query);
         $statement->bindParam(':nombre', $nombre);
@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -148,7 +149,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
 
-            <label for="dni">DNI:</label>
+            <label for="repetir_contrasena">Repetir Contraseña:</label>
+            <input type="password" id="repetir_contrasena" name="repetir_contrasena" required><br>
+
+            <label for="dni">Documento:</label>
             <input type="text" id="dni" name="dni" required>
 
             <label for="localidad">Localidad:</label>
@@ -178,5 +182,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </div>
     <a href="login_empresa.php" class="btn-soy-empresa">Soy una empresa</a>
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>

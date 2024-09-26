@@ -1,0 +1,88 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Contenedor principal */
+.container-postulaciones {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la lista de postulaciones */
+.container-postulaciones ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.container-postulaciones li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.container-postulaciones li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mensajes */
+.container-postulaciones p {
+    color: #666;
+    font-size: 1rem;
+}
+.estado {
+    font-weight: bold;
+}
+
+.estado.enviado {
+    color: orange; /* Color para "enviado" */
+}
+
+.estado.visto {
+    color: blue; /* Color para "CV visto" */
+}
+
+.estado.seleccionado {
+    color: green; /* Color para "seleccionado" */
+}
+
+nav {
+    background-color: #ffffffad;;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+nav a {
+    color: #5b58ff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+

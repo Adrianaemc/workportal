@@ -1,0 +1,157 @@
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+/* Contenedor principal */
+.container {
+    display: flex;
+    margin-top: 20px;
+}
+/* Estilos para la barra lateral de filtros */
+.filtros {
+    flex: 0 0 20%;
+    padding: 20px;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+.filtros label, .filtros select, .filtros button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.filtros select, .filtros button {
+    padding: 5px;
+    font-size: 0.9rem;
+}
+.filtros button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.filtros button:hover {
+    background-color: #0056b3;
+}
+/* Estilos para la lista de vacantes */
+.lista-vacantes {
+    flex: 1;
+    padding: 20px;
+}
+.vacante {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.foto-perfil {
+    flex: 0 0 30%;
+    margin-right: 15px;
+}
+.foto-perfil img {
+    width: 100%;
+    border-radius: 8px;
+}
+.info-vacante {
+    flex: 1;
+}
+.info-vacante h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+.info-vacante .nombre-empresa {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+.info-vacante p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
+.info-vacante .descripcion {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5px;
+}
+.mensaje-no-resultados {
+    margin-top: 10px;
+    color: red;
+}
+.btn-postular {
+    background-color: #2c3d88; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-postular:hover {
+    background-color: #312fa5; /* Verde más oscuro */
+    transform: scale(1.05); /* Efecto de zoom */
+}
+.btn-postulado {
+    background-color: #D3D3D3; /* Gris claro */
+    color: #666; /* Texto gris oscuro */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed; /* Cambiar cursor a no permitido */
+    opacity: 0.7; /* Menos opacidad */
+}
+.select-cv {
+    padding: 10px;
+    border: 2px solid #ccc; /* Color de borde */
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.select-cv:hover {
+    border-color: #4c6baf; /* Cambiar color al pasar el mouse */
+}
+nav {
+    background-color: #ffffffad;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+nav a {
+    color: #004aad;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav .fas.fa-bell {
+    position: relative;
+    font-size: 1.5rem;
+}
+
+nav .fas.fa-bell::after {
+    content: ''; /* Ejemplo: número de notificaciones */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}

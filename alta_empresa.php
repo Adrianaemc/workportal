@@ -17,22 +17,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($contrasena !== $repetir_contrasena) {
         $mensaje_error = "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
     } else {
-        // Inserción en la base de datos
-        $query = "INSERT INTO empresas (nombre_empresa, cuit, contrasena, correo_electronico, domicilio, pais, telefono) VALUES (:nombre_empresa, :cuit, :contrasena, :correo, :domicilio, :pais, :telefono)";
-        $statement = $conexion->prepare($query);
-        $statement->bindParam(':nombre_empresa', $nombre_empresa);
-        $statement->bindParam(':cuit', $cuit);
-        $statement->bindParam(':contrasena', $contrasena);
-        $statement->bindParam(':correo', $correo_electronico);
-        $statement->bindParam(':domicilio', $domicilio);
-        $statement->bindParam(':pais', $pais);
-        $statement->bindParam(':telefono', $telefono);
-        
-        if ($statement->execute()) {
-            // Registro exitoso
-            $registro_exitoso = true;
+        // Verificar si el correo electrónico ya existe en la base de datos
+        $stmt = $conexion->prepare("SELECT correo_electronico FROM empresas WHERE correo_electronico = ?");
+        $stmt->execute([$correo_electronico]);
+        if ($stmt->fetchColumn()) {
+            $mensaje_error = "El correo electrónico ya está registrado. Por favor, utiliza otro correo electrónico.";
         } else {
-            $mensaje_error = "Error al registrar la empresa. Por favor, inténtalo de nuevo.";
+            // Inserción en la base de datos
+            $query = "INSERT INTO empresas (nombre_empresa, cuit, contrasena, correo_electronico, domicilio, pais, telefono) VALUES (:nombre_empresa, :cuit, :contrasena, :correo, :domicilio, :pais, :telefono)";
+            $statement = $conexion->prepare($query);
+            $statement->bindParam(':nombre_empresa', $nombre_empresa);
+            $statement->bindParam(':cuit', $cuit);
+            $statement->bindParam(':contrasena', $contrasena);
+            $statement->bindParam(':correo', $correo_electronico);
+            $statement->bindParam(':domicilio', $domicilio);
+            $statement->bindParam(':pais', $pais);
+            $statement->bindParam(':telefono', $telefono);
+            
+            if ($statement->execute()) {
+                // Registro exitoso
+                $registro_exitoso = true;
+            } else {
+                $mensaje_error = "Error al registrar la empresa. Por favor, inténtalo de nuevo.";
+            }
         }
     }
 }
@@ -99,7 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .success {
             color: green;
             margin-bottom: 15px;
-        
         }
         /* Estilos para el botón */
         .btn-container {
@@ -121,8 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <?php include 'templates/header.php'; ?>
-    
     <!-- Botón en la esquina superior derecha -->
     <div class="btn-container">
         <a href="login_postulante.php" class="btn">Soy postulante</a>
@@ -167,5 +171,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <meta http-equiv="refresh" content="5;url=login_empresa.php">
         <?php endif; ?>
     </div>
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>
