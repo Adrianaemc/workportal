@@ -17,7 +17,9 @@ if (!isset($_SESSION['empresa'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <?php include 'templates/header.php'; ?>
+    <header>
+        <?php include 'templates/header.php'; ?>
+    </header>
     <div class="container">
         <h2>Publicar una nueva vacante</h2>
         <form id="form-vacante" action="procesar_publicacion_vacante.php" method="post">
@@ -95,5 +97,8 @@ if (!isset($_SESSION['empresa'])) {
             <button type="submit" class="btn btn-primary">Publicar</button>
         </form>
     </div>
+<footer>
+    <?php include 'templates/footer.php'; ?>
+</footer>
 </body>
 </html>

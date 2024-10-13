@@ -1,0 +1,54 @@
+
+#perfil-empresa {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+#imagen-empresa {
+    width: 150px; /* Ajustar el tamaño de la imagen según sea necesario */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+#datos-empresa {
+    margin-left: 20px;
+}
+
+#nombre-empresa {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#descripcion-empresa {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.vacante {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-publicar-vacante {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-publicar-vacante:hover {
+    background-color: #0056b3;
+}
+
+.btn-modificar, .btn-eliminar {
+    margin-right: 10px;
+}
+
+.vacante .row {
+    margin-bottom: 10px;
+}

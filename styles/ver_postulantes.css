@@ -1,0 +1,54 @@
+body {
+    background-color: #f8f9fa; /* Color de fondo claro */
+}
+
+h2 {
+    font-family: 'Arial', sans-serif; /* Cambiar la fuente si se desea */
+    color: #333; /* Color del texto */
+}
+
+.card {
+    transition: transform 0.2s; /* Transición suave al hacer hover */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Escalado al pasar el cursor */
+}
+
+.card-title {
+    color: #007bff; /* Color del título */
+}
+
+.alert {
+    margin-top: 20px; /* Espacio superior para la alerta */
+}
+
+/* Estilo de botones */
+.btn-primary, .btn-info {
+    width: 100%; /* Botones a tamaño completo */
+}
+.btn-info {
+    color: #ebf0f7;
+    background-color: #34a1fa;
+}
+
+
+/* Estilos para el nav */
+nav {
+    background-color: #ffffffad;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+nav a {
+    color: #004aad;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}

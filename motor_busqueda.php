@@ -75,6 +75,7 @@ $postulaciones = $stmt_postulaciones->fetchAll(PDO::FETCH_COLUMN);
     <link rel="stylesheet" href="styles/styles_motor.css">
 </head>
 <body>
+<header>
     <?php include 'templates/header.php'; ?>
     <nav>
         <a href="index.php">Inicio</a>
@@ -84,6 +85,8 @@ $postulaciones = $stmt_postulaciones->fetchAll(PDO::FETCH_COLUMN);
         <a href="cerrar_sesion_postulante.php">Cerrar Sesión</a>
         <a href="#"><i class="fas fa-bell"></i></a>
     </nav>
+</header>
+    <div><h1>EMPLEOS DISPONIBLES</h1></div>
     <div class="container">
         <div class="filtros">
             <form id="filtros-form" method="GET" action="">
