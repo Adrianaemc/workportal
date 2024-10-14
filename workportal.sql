@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2024 a las 03:11:06
+-- Tiempo de generación: 14-10-2024 a las 03:57:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -140,6 +140,46 @@ INSERT INTO `idiomas` (`id_idioma`, `id_usuario`, `idioma`, `nivel_competencia`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `notificaciones`
+--
+
+CREATE TABLE `notificaciones` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `mensaje` varchar(255) NOT NULL,
+  `fecha` datetime DEFAULT current_timestamp(),
+  `leida` tinyint(1) DEFAULT 0,
+  `estado` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `notificaciones`
+--
+
+INSERT INTO `notificaciones` (`id`, `id_usuario`, `mensaje`, `fecha`, `leida`, `estado`) VALUES
+(5, 1, 'Tu CV para Contador Publico fue visto.', '2024-10-13 19:21:33', 1, 'visto'),
+(6, 1, 'Tu CV para Contador Publico ha sido seleccionado. Pronto la empresa se comunicará con vos para una entrevista.', '2024-10-13 19:23:34', 1, 'seleccionado'),
+(7, 7, 'Lo sentimos, tu CV para la búsqueda Desarrollador Web Frontend ha sido rechazado.', '2024-10-13 19:25:25', 1, 'rechazado'),
+(8, 7, 'Tu CV para Contador Publico fue visto.', '2024-10-13 19:32:10', 1, 'visto'),
+(9, 7, 'Tu CV para Contador Publico fue visto.', '2024-10-13 19:38:14', 1, 'visto'),
+(10, 7, 'Tu CV para Contador Publico ha sido seleccionado. Pronto la empresa se comunicará con vos para una entrevista.', '2024-10-13 19:38:34', 1, 'seleccionado'),
+(11, 2, 'Tu CV para Desarrollador Web Frontend fue visto.', '2024-10-13 19:39:54', 1, 'visto'),
+(12, 2, 'Tu CV para Desarrollador Web Frontend fue visto.', '2024-10-13 19:40:08', 1, 'visto'),
+(13, 2, 'Tu CV para Desarrollador Web Frontend ha sido seleccionado. Pronto la empresa se comunicará con vos para una entrevista.', '2024-10-13 19:51:09', 1, 'seleccionado'),
+(14, 2, 'Tu CV para Contador Publico fue visto.', '2024-10-13 19:57:53', 1, 'visto'),
+(15, 2, 'Tu CV para Contador Publico ha sido seleccionado. Pronto la empresa se comunicará con vos para una entrevista.', '2024-10-13 19:58:31', 1, 'seleccionado'),
+(16, 2, 'Tu CV para Contador Publico fue visto.', '2024-10-13 20:01:35', 1, 'visto'),
+(17, 2, 'Tu CV para Contador Publico fue visto.', '2024-10-13 20:04:44', 1, 'visto'),
+(18, 2, 'Tu CV para Contador Publico fue visto.', '2024-10-13 20:06:25', 1, 'visto'),
+(19, 2, 'Tu CV para Contador Publico fue visto.', '2024-10-13 21:37:04', 1, 'visto'),
+(20, 2, 'Tu CV para Contador Publico ha sido seleccionado. Pronto la empresa se comunicará con vos para una entrevista.', '2024-10-13 21:53:50', 1, 'seleccionado'),
+(21, 2, 'Lo sentimos, tu CV para la búsqueda Contador Publico ha sido rechazado.', '2024-10-13 21:58:27', 1, 'rechazado'),
+(22, 2, 'Tu CV para Contador Publico fue visto.', '2024-10-13 22:01:24', 1, 'visto'),
+(23, 2, 'Tu CV para Contador Publico fue visto.', '2024-10-13 22:06:25', 1, 'visto');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `postulaciones`
 --
 
@@ -158,15 +198,18 @@ CREATE TABLE `postulaciones` (
 
 INSERT INTO `postulaciones` (`id_postulacion`, `id_usuario`, `id_vacante`, `tipo_cv`, `fecha_postulacion`, `estado`) VALUES
 (1, 1, 3, 'pdf', '2024-09-18 23:49:40', 'seleccionado'),
-(2, 1, 5, 'pdf', '2024-09-19 00:03:28', 'enviado'),
+(2, 1, 5, 'pdf', '2024-09-19 00:03:28', 'rechazado'),
 (3, 2, 3, 'manual', '2024-09-19 00:21:46', 'visto'),
 (4, 7, 3, 'pdf', '2024-09-19 16:42:53', 'rechazado'),
-(5, 7, 5, 'pdf', '2024-09-19 16:46:54', 'enviado'),
+(5, 7, 5, 'pdf', '2024-09-19 16:46:54', 'rechazado'),
 (6, 3, 3, 'pdf', '2024-09-19 16:48:32', 'visto'),
 (7, 5, 3, 'pdf', '2024-09-19 21:46:19', 'seleccionado'),
 (8, 8, 3, 'pdf', '2024-09-19 22:37:26', 'rechazado'),
 (9, 8, 5, 'pdf', '2024-09-19 22:38:24', 'enviado'),
-(10, 1, 6, 'manual', '2024-09-26 03:25:46', 'enviado');
+(10, 1, 6, 'manual', '2024-09-26 03:25:46', 'seleccionado'),
+(11, 7, 6, 'manual', '2024-10-13 22:31:50', 'seleccionado'),
+(12, 2, 5, 'pdf', '2024-10-13 22:39:39', 'seleccionado'),
+(15, 2, 6, 'pdf', '2024-10-14 00:58:05', 'visto');
 
 -- --------------------------------------------------------
 
@@ -197,7 +240,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `correo_electronico`, `contrasena`, `apellido`, `dni`, `localidad`, `provincia`, `pais`, `telefono`, `token`, `foto_perfil`, `sobre_mi`, `cv_pdf`) VALUES
 (1, 'maria', 'adrianamorenocard@gmail.com', '12345', 'Moreno', '96027940', 'Almagro', 'CABA', 'Argentina', '1123956105', NULL, 'uploads/3.jpg', 'estudianteeee hols', 'uploads/CV MACARENA MORRONE pdf.pdf'),
-(2, 'Maria fernanda', 'gomezmaria@gmail.com', '1234', 'Gomez', '234477877', 'balvanera', 'CAPITAL FEDERAL', 'Argentina', '112323655', NULL, 'uploads/IMG-3736.jpg', NULL, NULL),
+(2, 'Maria fernanda', 'gomezmaria@gmail.com', '1234', 'Gomez', '234477877', 'balvanera', 'CAPITAL FEDERAL', 'Argentina', '112323655', NULL, 'uploads/farmacia imagen.jpg', 'fffff', NULL),
 (3, 'Oriana', 'hermosoor@gmail.com', '1234', 'Hermoso', '25447777', 'CABA', 'CAPITAL FEDERAL', 'Argentina', '112355585', NULL, 'uploads/images.jfif', NULL, NULL),
 (5, 'Ivan', 'martinivanquiroga@gmail.com', '1234', 'Quiroga', '123444444', 'Almagro', 'CABA', 'Argentina', '1123956108', NULL, 'img/sinfoto.png', 'hola', NULL),
 (6, 'Oriana', 'busquedaspm@gmail.com', '1234', 'Mariño', '35647444', 'CABA', 'CAPITAL FEDERAL', 'Argentina', '43138005', NULL, 'uploads/descarga.jpeg', 'Capacidad de trabajo en equipo', 'uploads/CV - Adriana moreno.pdf'),
@@ -269,6 +312,13 @@ ALTER TABLE `idiomas`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
+-- Indices de la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
 -- Indices de la tabla `postulaciones`
 --
 ALTER TABLE `postulaciones`
@@ -318,10 +368,16 @@ ALTER TABLE `idiomas`
   MODIFY `id_idioma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT de la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT de la tabla `postulaciones`
 --
 ALTER TABLE `postulaciones`
-  MODIFY `id_postulacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_postulacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -357,6 +413,12 @@ ALTER TABLE `experiencia_laboral`
 --
 ALTER TABLE `idiomas`
   ADD CONSTRAINT `idiomas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
 -- Filtros para la tabla `postulaciones`
