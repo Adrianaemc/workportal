@@ -5,6 +5,28 @@ body {
     margin: 0;
     padding: 0;
 }
+nav {
+    background-color: #ffffffad;
+    padding: 10px;
+    display: flex; /* Alinear en una fila */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    gap: 15px; /* Espaciado entre elementos */
+}
+
+nav a {
+    color: #004aad;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+nav .nav-links a:hover {
+    text-decoration: underline;
+}
+
 
 .container {
     width: 80%;

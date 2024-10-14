@@ -24,7 +24,7 @@ $stmt_vacante->execute([':id_vacante' => $id_vacante]);
 $vacante = $stmt_vacante->fetch(PDO::FETCH_ASSOC);
 
 // Consultar los postulantes de la vacante según el estado
-$sql_postulantes = "SELECT p.*, u.cv_pdf, u.foto_perfil, u.nombre
+$sql_postulantes = "SELECT p.*, u.cv_pdf, u.foto_perfil, u.nombre, u.apellido
                     FROM postulaciones p
                     INNER JOIN usuarios u ON p.id_usuario = u.id_usuario
                     WHERE p.id_vacante = :id_vacante";
@@ -121,7 +121,7 @@ $count_rechazados = $stmt_count_rechazados->fetch(PDO::FETCH_ASSOC)['total'];
                     <div class="card border-secondary shadow-sm">
                         <img src="<?php echo htmlspecialchars($postulante['foto_perfil'] ?? 'img/sinfoto.png'); ?>" class="card-img-top" alt="Foto de Perfil" style="height: 200px; object-fit: cover;">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo htmlspecialchars($postulante['nombre']); ?></h5>
+                            <h5 class="card-title"><?php echo htmlspecialchars($postulante['nombre'])," ", ($postulante['apellido']); ?></h5>
                             <p class="card-text">
                                 <strong>Tipo de CV:</strong> <?php echo htmlspecialchars($postulante['tipo_cv']); ?><br>
                                 <strong>Fecha de Postulación:</strong> <?php echo htmlspecialchars($postulante['fecha_postulacion']); ?><br>

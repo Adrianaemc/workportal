@@ -120,11 +120,14 @@ body {
 .select-cv:hover {
     border-color: #4c6baf; /* Cambiar color al pasar el mouse */
 }
+/* Estilos adicionales para el nav */
 nav {
     background-color: #ffffffad;
     padding: 10px;
-    text-align: center;
-    position: relative;
+    display: flex; /* Alinear en una fila */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    gap: 15px; /* Espaciado entre elementos */
 }
 
 nav a {
@@ -135,23 +138,29 @@ nav a {
     font-weight: bold;
 }
 
-nav a:hover {
+
+nav .nav-links a:hover {
     text-decoration: underline;
 }
 
-nav .fas.fa-bell {
+.nav-item {
     position: relative;
-    font-size: 1.5rem;
+    display: inline-flex; /* Alinea el icono y el badge correctamente */
+    align-items: center;
+    cursor: pointer;
 }
 
-nav .fas.fa-bell::after {
-    content: ''; /* Ejemplo: número de notificaciones */
+.nav-item .fa-bell {
+    font-size: 24px;
+}
+
+.badge {
     position: absolute;
-    top: -10px;
+    top: -5px;
     right: -10px;
+    padding: 3px 6px;
+    border-radius: 50%;
     background-color: red;
     color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 0.8rem;
+    font-size: 12px;
 }

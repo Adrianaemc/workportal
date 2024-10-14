@@ -73,19 +73,18 @@ $postulaciones = $stmt_postulaciones->fetchAll(PDO::FETCH_COLUMN);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Búsqueda</title>
     <link rel="stylesheet" href="styles/styles_motor.css">
-</head>
-<body>
-<header>
-    <?php include 'templates/header.php'; ?>
-    <nav>
-        <a href="index.php">Inicio</a>
-        <a href="cv_postulantes.php">Mi CV</a>
-        <a href="mis_postulaciones.php">Mis Postulaciones</a>
-        <a href="#">Configuración</a>
-        <a href="cerrar_sesion_postulante.php">Cerrar Sesión</a>
-        <a href="#"><i class="fas fa-bell"></i></a>
-    </nav>
-</header>
+    </head>
+    <body>
+    <header>
+        <?php include 'templates/header.php'; ?>
+        <nav>        
+            <a href="cv_postulantes.php">Mi CV</a>
+            <a href="mis_postulaciones.php">Mis Postulaciones</a>
+            <a href="#">Configuración</a>
+            <a href="cerrar_sesion_postulante.php">Cerrar Sesión</a>
+        </nav>
+    </header>
+<main>
     <div><h1>EMPLEOS DISPONIBLES</h1></div>
     <div class="container">
         <div class="filtros">
@@ -164,5 +163,9 @@ $postulaciones = $stmt_postulaciones->fetchAll(PDO::FETCH_COLUMN);
             <?php endif; ?>
         </div>
     </div>
+</main>
+<footer>
+    <?php include 'templates/footer.php'; ?>
+</footer>   
 </body>
 </html>

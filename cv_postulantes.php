@@ -87,7 +87,16 @@ if ($conexion) {
     
 </head>
 <body>
+    <header>
     <?php include 'templates/header.php'; ?>
+    <nav>        
+        <a href="perfil_postulante.php">Volver a mi perfil</a>
+        <a href="cv_postulantes.php">Mi CV</a>
+        <a href="mis_postulaciones.php">Mis Postulaciones</a>
+        <a href="#">Configuración</a>
+        <a href="cerrar_sesion_postulante.php">Cerrar Sesión</a>
+    </header>
+    
     <main>
         <h1>Carga tu CV </h1>
         <div class="container">
